@@ -45,10 +45,25 @@ namespace Lesson17
                 new User("Dmitry", "Castl", 26, "dmitry@gmail.com", "1235abc"),
             };
 
-            //Задание 1
-            var UserBig = users.Where(s => s.Age > 20);
-            Console.WriteLine("Пользователи которым больше 20 лет:");
-            foreach(var i in UserBig)
+            // //Задание 1
+            // var UserBig = users.Where(u => u.Age > 20);
+            // Console.WriteLine("Пользователи которым больше 20 лет:");
+            // foreach(var i in UserBig)
+            // {
+            //     Console.WriteLine($"Имя: {i.FirstName}, Фамилия: {i.LastName}, Возраст: {i.Age}, Email: {i.Email}");
+            // }
+
+            //Задание 2
+            var OrderByFirstName = users.OrderBy(u => u.FirstName);
+            Console.WriteLine("Отсортированные пользователи по имени:");
+            foreach(var i in OrderByFirstName)
+            {
+                Console.WriteLine($"Имя: {i.FirstName}, Фамилия: {i.LastName}, Возраст: {i.Age}, Email: {i.Email}");
+            }
+
+            var OrderByLasstName = users.OrderBy(u => u.LastName);
+            Console.WriteLine("Отсортированные пользователи по фамилии:");
+            foreach(var i in OrderByLasstName)
             {
                 Console.WriteLine($"Имя: {i.FirstName}, Фамилия: {i.LastName}, Возраст: {i.Age}, Email: {i.Email}");
             }
