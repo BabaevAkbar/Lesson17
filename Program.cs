@@ -68,13 +68,26 @@ namespace Lesson17
             //     Console.WriteLine($"Имя: {i.FirstName}, Фамилия: {i.LastName}, Возраст: {i.Age}, Email: {i.Email}");
             // }
 
-            //Задание 3
-            var FirtsNameByA = users.Where(u => u.FirstName.StartsWith("A"));
-            Console.WriteLine("Пользователи у которых имя начинается с буквы А:");
-            foreach(var i in FirtsNameByA)
+            // //Задание 3
+            // var FirtsNameByA = users.Where(u => u.FirstName.StartsWith("A"));
+            // Console.WriteLine("Пользователи у которых имя начинается с буквы А:");
+            // foreach(var i in FirtsNameByA)
+            // {
+            //     Console.WriteLine($"Имя: {i.FirstName}, Фамилия: {i.LastName}, Возраст: {i.Age}, Email: {i.Email}");
+            // }
+
+            //Задание 4
+            List<string> names = new List<string>{"Анна","Сергей", "Анатолий", "Владимир", "Витория", "Александр", "Александра", "Валерий", "Виктор", "Дмитрий"};
+            var NameWithB = names.Where(n => n.StartsWith("В"));
+            Console.WriteLine("Имена которые начинаются с В:");
+            foreach(var i in NameWithB)
             {
-                Console.WriteLine($"Имя: {i.FirstName}, Фамилия: {i.LastName}, Возраст: {i.Age}, Email: {i.Email}");
+                Console.WriteLine(i);
             }
+
+            var NameBig = names.FirstOrDefault(n => n.Length > 5);
+            Console.WriteLine("Первое имя которое имеет больше 5-ти букв:");
+            Console.WriteLine(NameBig);
         }
     }
 }
