@@ -53,17 +53,25 @@ namespace Lesson17
             //     Console.WriteLine($"Имя: {i.FirstName}, Фамилия: {i.LastName}, Возраст: {i.Age}, Email: {i.Email}");
             // }
 
-            //Задание 2
-            var OrderByFirstName = users.OrderBy(u => u.FirstName);
-            Console.WriteLine("Отсортированные пользователи по имени:");
-            foreach(var i in OrderByFirstName)
-            {
-                Console.WriteLine($"Имя: {i.FirstName}, Фамилия: {i.LastName}, Возраст: {i.Age}, Email: {i.Email}");
-            }
+            // //Задание 2
+            // var OrderByFirstName = users.OrderBy(u => u.FirstName);
+            // Console.WriteLine("Отсортированные пользователи по имени:");
+            // foreach(var i in OrderByFirstName)
+            // {
+            //     Console.WriteLine($"Имя: {i.FirstName}, Фамилия: {i.LastName}, Возраст: {i.Age}, Email: {i.Email}");
+            // }
 
-            var OrderByLasstName = users.OrderBy(u => u.LastName);
-            Console.WriteLine("Отсортированные пользователи по фамилии:");
-            foreach(var i in OrderByLasstName)
+            // var OrderByLasstName = users.OrderBy(u => u.LastName);
+            // Console.WriteLine("Отсортированные пользователи по фамилии:");
+            // foreach(var i in OrderByLasstName)
+            // {
+            //     Console.WriteLine($"Имя: {i.FirstName}, Фамилия: {i.LastName}, Возраст: {i.Age}, Email: {i.Email}");
+            // }
+
+            //Задание 3
+            var FirtsNameByA = users.Where(u => u.FirstName.StartsWith("A"));
+            Console.WriteLine("Пользователи у которых имя начинается с буквы А:");
+            foreach(var i in FirtsNameByA)
             {
                 Console.WriteLine($"Имя: {i.FirstName}, Фамилия: {i.LastName}, Возраст: {i.Age}, Email: {i.Email}");
             }
