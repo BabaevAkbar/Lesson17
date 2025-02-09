@@ -33,6 +33,19 @@ namespace Lesson17
                 Password = password;
             }
         }
+
+        class Order
+        {
+            public int OrderId { get; set; }
+            public string? CustomerName { get; set; }
+            public int Amount{ get; set; }
+            public Order(int orderId, string? customerName, int amount)
+            {
+                OrderId = orderId;
+                CustomerName = customerName;
+                Amount = amount;
+            }
+        }
         static void Main(string[] args)
         {
             List<User> users = new List<User>
@@ -43,6 +56,20 @@ namespace Lesson17
                 new User("Sergey", "Lazerev", 19, "sergey@gmail.com", "abc123"),
                 new User("Lorisa", "Zvereva", 20, "larisa@gmail.com", "1234abcd"),
                 new User("Dmitry", "Castl", 26, "dmitry@gmail.com", "1235abc"),
+            };
+            List<Order> orders = new List<Order>
+            {
+                new Order(1, "Axl", 100),
+                new Order(2, "Bob", 200),
+                new Order(3, "Michael", 600),
+                new Order(4, "Donald", 1000),
+                new Order(5, "Mike", 700),
+                new Order(6, "Arnold", 100),
+                new Order(7, "Ealon", 600),
+                new Order(8, "Dmitry", 1500),
+                new Order(9, "Fedor", 860),
+                new Order(10, "Kirill", 1400),
+                new Order(11, "Aleksey", 650),
             };
 
             // //Задание 1
@@ -76,18 +103,29 @@ namespace Lesson17
             //     Console.WriteLine($"Имя: {i.FirstName}, Фамилия: {i.LastName}, Возраст: {i.Age}, Email: {i.Email}");
             // }
 
-            //Задание 4
-            List<string> names = new List<string>{"Анна","Сергей", "Анатолий", "Владимир", "Витория", "Александр", "Александра", "Валерий", "Виктор", "Дмитрий"};
-            var NameWithB = names.Where(n => n.StartsWith("В"));
-            Console.WriteLine("Имена которые начинаются с В:");
-            foreach(var i in NameWithB)
-            {
-                Console.WriteLine(i);
-            }
+            // //Задание 4
+            // List<string> names = new List<string>{"Анна","Сергей", "Анатолий", "Владимир", "Витория", "Александр", "Александра", "Валерий", "Виктор", "Дмитрий"};
+            // var NameWithB = names.Where(n => n.StartsWith("В"));
+            // Console.WriteLine("Имена которые начинаются с В:");
+            // foreach(var i in NameWithB)
+            // {
+            //     Console.WriteLine(i);
+            // }
 
-            var NameBig = names.FirstOrDefault(n => n.Length > 5);
-            Console.WriteLine("Первое имя которое имеет больше 5-ти букв:");
-            Console.WriteLine(NameBig);
+            // var NameBig = names.FirstOrDefault(n => n.Length > 5);
+            // Console.WriteLine("Первое имя которое имеет больше 5-ти букв:");
+            // Console.WriteLine(NameBig);
+
+            // Задание 5
+            var AmountBig = orders.Where(o => o.Amount > 500);
+            Console.WriteLine("Заказы больше 500:");
+            foreach(var i in AmountBig)
+            {
+                Console.WriteLine($"Номер заказа: {i.OrderId}, Имя: {i.CustomerName},  Сумма заказа: {i.Amount}");
+            }
+            
+            int sum = orders.Aggregate(0, (sum, order) => sum + order.Amount);
+            Console.WriteLine($"Сумма всех заказов: {sum}");
         }
     }
 }
